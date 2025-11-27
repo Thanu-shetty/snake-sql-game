@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake SQL Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Snake SQL Game</h1>
+            <div class="score-board">
+                <div class="score">Score: <span id="score">0</span></div>
+                <div class="level">Level: <span id="level">1</span></div>
+            </div>
+        </header>
+
+        <div class="game-area">
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+            
+            <!-- SQL Challenge Modal -->
+            <div id="sqlModal" class="modal">
+                <div class="modal-content">
+                    <h2>SQL Challenge!</h2>
+                    <div id="questionText" class="question"></div>
+                    <textarea id="sqlInput" placeholder="Type your SQL query here..."></textarea>
+                    <div class="modal-buttons">
+                        <button id="submitQuery" class="btn btn-primary">Submit</button>
+                        <button id="skipQuestion" class="btn btn-secondary">Skip</button>
+                    </div>
+                    <div id="feedback" class="feedback"></div>
+                </div>
+            </div>
+
+            <!-- Game Over Modal -->
+            <div id="gameOverModal" class="modal">
+                <div class="modal-content">
+                    <h2>Game Over!</h2>
+                    <p>Final Score: <span id="finalScore">0</span></p>
+                    <div class="modal-buttons">
+                        <button id="restartGame" class="btn btn-primary">Play Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>How to Play:</h3>
+            <ul>
+                <li>Use arrow keys to control the snake</li>
+                <li>Reach the gray food to trigger SQL challenges</li>
+                <li>Answer SQL questions correctly to eat the food</li>
+                <li>Each correct answer increases your score</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>
